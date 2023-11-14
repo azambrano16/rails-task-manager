@@ -12,9 +12,16 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(params[:id])
-    @task.save
-    redirect_to task_path(@task)
+    @task = Task.new(task_params)
+    if @task.save
+    redirect_to @task, notice: 'Task created'
+    else
+      render :new
+    end
+  end
+
+  def edit
+    @task = Task.find(params[:id])
   end
 
   def update

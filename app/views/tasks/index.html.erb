@@ -1,7 +1,10 @@
 <h1>My tasks🧾✅</h1>
 <ul>
   <% @tasks.each do |task| %>
-    <li ><%= task.title %></li>
-    <%= task.details %>
+    <li >
+    <%= task.title %>
+    <%# <%= task.details %>
+    <input type="checkbox" name="completed" id="completed" <%= 'checked' if task.completed %>>
+    </li>
   <% end %>
 </ul>
